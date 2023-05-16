@@ -19,8 +19,12 @@ gem "devise"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
+
+gem 'cloudinary', '~> 1.16.0'
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
@@ -80,4 +84,5 @@ group :test do
 
 
 
-gem "tailwindcss-rails", "~> 2.0"
+  gem "tailwindcss-rails", "~> 2.0"
+end
