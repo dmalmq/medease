@@ -9,5 +9,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   resources :bookings, only: [:destroy, :index]
 
+  namespace :hospital do
+    resources :bookings, only: [:index]
+    # equivalent to => get '/<namespace>/bookings', to: '<namespace>/bookings#index'
+  end
+
   # root "articles#index"
 end
