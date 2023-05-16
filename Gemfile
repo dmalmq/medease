@@ -81,3 +81,4 @@ group :test do
 
 
 gem "tailwindcss-rails", "~> 2.0"
+end
