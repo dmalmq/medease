@@ -14,7 +14,6 @@ puts "Done removing the current rooms"
 
 puts "Creating 20 hospital rooms"
 
-
 5.times do
   User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Number.number(digits: 10))
 end
@@ -22,11 +21,18 @@ def random_user
   User.offset(rand(User.count)).first
 end
 
-Room.create(name: 'Cardiac Catheterization Lab', facility_name: 'Sunrise Medical Center', location: 'Tokyo, Japan', equipment: 'Fluoroscope', price_per_hour: 10000, category: 'Cardiology', capacity: 3, user: random_user)
-Room.create(name: 'MRI Suite', facility_name: 'Asahi Hospital', location: 'Osaka, Japan', equipment: 'MRI Scanner', price_per_hour: 12000, category: 'Radiology', capacity: 4, user: random_user)
+room1 = Room.create(name: 'Cardiac Catheterization Lab', facility_name: 'Sunrise Medical Center', location: 'Tokyo, Japan', equipment: 'Fluoroscope', price_per_hour: 10000, category: 'Cardiology', capacity: 3, user: random_user)
+room2 = Room.create(name: 'MRI Suite', facility_name: 'Asahi Hospital', location: 'Osaka, Japan', equipment: 'MRI Scanner', price_per_hour: 12000, category: 'Radiology', capacity: 4, user: random_user)
+
 
 # Room.create(name: 'Operating Room', facility_name: 'Sakura Hospital', location: 'Kyoto, Japan', equipment: 'Surgical Lights', price_per_hour: 15000, category: 'Surgery', capacity: '5')
-
+Booking.create(
+  room: room1,
+  user: random_user,
+  start_date: Date.today,
+  end_date: Date.today + 7,
+  status: false
+)
 # Room.create(name: 'Labor and Delivery Room', facility_name: 'Himawari Women’s Hospital', location: 'Fukuoka, Japan', equipment: 'Fetal Heart Monitor', price_per_hour: '¥8,000', category: 'Obstetrics and Gynecology', capacity: '2')
 
 # Room.create(name: 'Endoscopy Suite', facility_name: 'Nakamura Digestive Clinic', location: 'Nagoya, Japan', equipment: 'Flexible Endoscope', price_per_hour: '¥11,000', category: 'Gastroenterology', capacity: '3')

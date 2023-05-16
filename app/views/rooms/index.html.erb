@@ -6,5 +6,6 @@
 <p><%= room.location %></p>
 <p><%= room.price_per_hour %></p>
 <p><%= room.capacity %></p>
-<%= link_to 'room', room_path(room) %>
+<p><%= link_to 'room', room_path(room) %></p>
 <% end %>
+<%= link_to 'Add Room', new_room_path %>
