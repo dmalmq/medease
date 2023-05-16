@@ -3,8 +3,6 @@ Room.new(room_name: 'fake hospital room name', facility_name: 'fake japanese hos
 
 Room.new(room_name: 'Sunflower Suite', facility_name: 'Sakura Hospital', location: 'Tokyo, Japan', equipment: 'MRI machine, defibrillator, EKG monitor', price_per_hour: '$200', category: 'Radiology', capacity: '2-3')
 
-yoto, Japan', equipment: 'Ultrasound machine, fetal monitor, blood pressure cuff', price_per_hour: '$150', category: 'OB/GYN', capacity: '2-4')
-
 Room.new(room_name: 'Lavender Room', facility_name: 'Rose Garden Hospital', location: 'Osaka, Japan', equipment: 'X-ray machine, lead aprons, radiation shields', price_per_hour: '$180', category: 'Radiology', capacity: '1-2')
 
 Room.new(room_name: 'Jade Room', facility_name: 'Emerald Hospital', location: 'Fukuoka, Japan', equipment: 'Surgical table, anesthesia machine, surgical lights', price_per_hour: '$300', category: 'Surgery', capacity: '4-6')
@@ -24,5 +22,3 @@ Room.new(room_name: 'Pearl Room', facility_name: 'Gold Hospital', location: 'Nar
 Room.new(room_name: 'Opal Room', facility_name: 'Silver Hospital', location: 'Saitama, Japan', equipment: 'Pacemaker, ECG machine, telemetry monitor', price_per_hour: '$180', category: 'Cardiology', capacity: '2-4')
 
 Room.new(room_name: 'Emerald Room', facility_name: 'Copper Hospital', location: 'Matsuyama, Japan', equipment: 'Ultrasound machine, blood pressure cuff, stethoscope', price_per_hour: '$130', category: 'General Medicine', capacity: '1-2')
-
-Room.new(room_name: 'Amethyst Room', facility_name: 'Bronze Hospital', location: 'Okayama, Japan', equipment: 'Nasogastric tube, enteral feeding pump, suction machine', price_per_hour:
