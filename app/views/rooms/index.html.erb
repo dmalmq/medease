@@ -1,13 +1,4 @@
 
-<div style="background-image: url(<%= asset_path('banner.jpg') %>); background-size: cover; background-position: center;">
-  <div class="h-64 justify-center flex flex-col">
-  <h1 class="text-2xl font-bold">MedEase </h1>
-  <h3 class="text-xl">Booking operation rooms with ease</h3>
-  </div>
-</div>
-
-
-
 <div class="mx-4 mt-6">
 <div class="grid grid-cols-3 gap-6">
   <% @rooms.each do |room| %>
@@ -27,7 +18,7 @@
     <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
       <p></p>
       <p><%= room.location %></p>
-      <p><%= room.price_per_hour %> ¥/h  <%= room.capacity %> People</p>
+      <p>Price: <%= room.price_per_hour %> ¥/h - Capacity: <%= room.capacity %> People</p>
       <%= link_to 'room', room_path(room) %>
     </p>
     </button>
@@ -35,4 +26,3 @@
 </div>
 <% end %>
 </div>
-
