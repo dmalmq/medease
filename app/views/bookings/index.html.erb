@@ -1,0 +1,6 @@
+<p><% @bookings.each do |booking| %></p>
+<p><%= booking.status %></p>
+<p><%= booking.start_date %></p>
+<p><%= booking.end_date %></p>
+<p><%= link_to 'booking', booking_path(booking) %></p>
+<p><% end %></p>
