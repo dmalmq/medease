@@ -1,8 +1,10 @@
 <h1><% @rooms.each do |room| %></h1>
-<%= room.name %>
-<%= room.facility_name %>
-<%= room.location %>
-<%= room.price_per_hour %>
-<%= room.capacity %>
-<%= link_to 'room', rooms_path(@room) %>
+<p><%= room.name %></p>
+<p><%= room.facility_name %></p>
+<p><%= room.equipment %></p>
+<p><%= room.category %></p>
+<p><%= room.location %></p>
+<p><%= room.price_per_hour %></p>
+<p><%= room.capacity %></p>
+<%= link_to 'room', room_path(room) %>
 <% end %>
