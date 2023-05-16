@@ -4,3 +4,9 @@
 <%= @room.price_per_hour %>
 <%= @room.capacity %>
 <%= link_to 'Main_page', rooms_path %>
+
+
+<div class="container">
+  <h1>Book a room</h1>
+  <%= render 'bookings/form' %>
+</div>
