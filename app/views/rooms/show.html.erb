@@ -134,10 +134,13 @@
 <%= @room.location %>
 <%= @room.price_per_hour %>
 <%= @room.capacity %>
-<%= link_to 'Main_page', rooms_path %>
+<%= link_to 'Main page', rooms_path %>
 
 
-<div class="container">
-  <h1>Book a room</h1>
-  <%= render 'bookings/form' %>
-</div>
+  <div
+    class="container"
+    data-controller="booking-form"
+    data-booking-form-room-price-value="<%= @room.price_per_hour %>">
+    <h1>Book a room</h1>
+    <%= render 'bookings/form'%>
+  </div>
