@@ -1,18 +1,23 @@
 class RoomsController < ApplicationController
   def index
     @rooms = Room.all
+    @rooms = policy_scope(Room)
   end
 
   def show
     @room = Room.find(params[:id])
+    @booking = Booking.new
+    authorize @room
   end
 
   def new
     @room = Room.new
+    authorize @room
   end
 
   def create
     @room = Room.new(room_params)
+    authorize @room
     if @room.save
       redirect_to rooms_path
     else
