@@ -25,7 +25,7 @@ end
 Room.create(name: 'Cardiac Catheterization Lab', facility_name: 'Sunrise Medical Center', location: 'Tokyo, Japan', equipment: 'Fluoroscope', price_per_hour: 10000, category: 'Cardiology', capacity: 3, user: random_user)
 Room.create(name: 'MRI Suite', facility_name: 'Asahi Hospital', location: 'Osaka, Japan', equipment: 'MRI Scanner', price_per_hour: 12000, category: 'Radiology', capacity: 4, user: random_user)
 Room.create(name: 'Operating Room', facility_name: 'Sakura Hospital', location: 'Kyoto, Japan', equipment: 'Surgical Lights', price_per_hour: 15000, category: 'Surgery', capacity: '5')
-Room.create(name: 'Labor and Delivery Room', facility_name: 'Himawari Women’s Hospital', location: 'Fukuoka, Japan', equipment: 'Fetal Heart Monitor', price_per_hour: 8000, category: 'Obstetrics and Gynecology', capacity: '2', user: random_user)
+Room.create(name: 'Labor and Delivery Room', facility_name: 'Himawari Women’s Hospital', location: 'Fukuoka, Japan', equipment: 'Fetal Heart Monitor', price_per_hour: 8000, category: 'Gynecology', capacity: '2', user: random_user)
 Room.create(name: 'Endoscopy Suite', facility_name: 'Nakamura Digestive Clinic', location: 'Nagoya, Japan', equipment: 'Flexible Endoscope', price_per_hour: 11000, category: 'Gastroenterology', capacity: '3', user: random_user)
 Room.create(name: 'Radiation Therapy Room', facility_name: 'Mount Fuji Cancer Center', location: 'Yamanashi, Japan', equipment: 'MRI Scanner', price_per_hour: 14000, category: 'Radiation Oncology', capacity: '4', user: random_user)
 Room.create(name: 'Ultrasound Room', facility_name: 'Shinjuku Medical Clinic', location: 'Tokyo, Japan', equipment: 'Fetal Heart Monitor', price_per_hour: 7000, category: 'Diagnostic Imaging', capacity: '2', user: random_user)
