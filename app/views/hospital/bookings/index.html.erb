@@ -1,6 +1,9 @@
 <h1>Hospital Profile</h1>
 
 <% @bookings.each do |booking| %>
-<%= booking.start_date %>
+<%= booking.start_time %>
 <%= booking.room.name %>
 <% end %>
+
+<%= link_to "List Room", new_room_path %>
+<%= link_to "Home", rooms_path %>
