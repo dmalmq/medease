@@ -38,6 +38,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:date, :end_time, :start_time).merge(user: current_user)
+    params.require(:booking).permit(:date, :hours, :from).merge(user: current_user)
   end
 end
