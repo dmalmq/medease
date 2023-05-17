@@ -17,9 +17,10 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.new(room_params)
+    @room.user = current_user
     authorize @room
     if @room.save
-      redirect_to rooms_path
+      redirect_to hospital_bookings_path
     else
       # display the form for the user again
       render :new, status: :unprocessable_entity
