@@ -17,7 +17,9 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.new(room_params)
+    @user_id = current_user.id
     authorize @room
+    raise
     if @room.save
       redirect_to rooms_path
     else
@@ -29,6 +31,6 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:name, :facility_name, :location, :price_per_hour, :capacity, :photo)
+    params.require(:room).permit(:name, :facility_name, :location, :price_per_hour, :capacity, :photo, :user_id)
   end
 end
