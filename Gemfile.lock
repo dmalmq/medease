@@ -302,6 +302,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   faker
+  geocoder
   jbuilder
   jsbundling-rails
   pg (~> 1.1)
