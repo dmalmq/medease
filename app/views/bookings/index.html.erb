@@ -60,6 +60,7 @@
         data-te-ripple-color="light">
         More Info
       </button>
+      <%= link_to "Cancel", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Cancel your appointment for room: #{booking.room.name}?" }  %>
     </div>
 
   <% end %>

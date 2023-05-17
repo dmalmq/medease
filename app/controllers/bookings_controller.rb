@@ -19,6 +19,7 @@ class BookingsController < ApplicationController
     @room = Room.find(params[:room_id])
     @booking = Booking.new(booking_params)
     @booking.room = @room
+    @booking.user = current_user
     authorize @booking
     if @booking.save
       redirect_to bookings_path(@room)
@@ -30,7 +31,8 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to room_path(@booking.room_id), status: :see_other, notice: 'booking was successfully deleted.'
+    authorize @booking
+    redirect_to bookings_path, status: :see_other, notice: 'booking was successfully deleted.'
   end
 
   private
