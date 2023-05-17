@@ -1,4 +1,5 @@
 <%= simple_form_for([@room, @booking]) do |f| %>
+<<<<<<< HEAD
   <%= f.input :date %>
   <%= f.input :from %>
   <%= f.input :hours,  input_html: { class: 'hour-input', id: 'hour-input', min: 1 } %>
@@ -25,3 +26,18 @@
     totalPrice.textContent = newTotalPrice;
   });
 </script>
+=======
+  <%= f.input :date, input_html: { class: 'hour-input', id: 'hour-input', min: 1 } %>
+  <%= f.input :from %>
+  <%= f.input :hours, input_html: {
+    class: 'hour-input',
+    id: 'hour-input',
+    min: 1,
+    data: {
+      action: "change->booking-form#calculation"
+      }
+    } %>
+  <%= f.button :submit, class: "btn btn-primary"%>
+  <p>Total price: ¥ <span id="total-price" data-booking-form-target="totalPrice" ><%= @room.price_per_hour %></span></p>
+<% end %>
+>>>>>>> 06f6a248757b19597e365712e6db67f50ece8770
