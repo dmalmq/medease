@@ -1,8 +1,7 @@
 class BookingsController < ApplicationController
 
   def index
-    @bookings = Booking.all
-    @booking = policy_scope(Booking)
+    @bookings = policy_scope(Booking)
   end
 
   def show
