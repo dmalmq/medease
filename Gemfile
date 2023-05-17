@@ -19,10 +19,13 @@ gem "devise"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
+<<<<<<< HEAD
+=======
 gem "pundit"
 
 gem 'dotenv-rails', groups: [:development, :test]
 
+>>>>>>> master
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
 
