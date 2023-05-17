@@ -25,11 +25,13 @@
     <!-- Tailwind CSS config -->
     <script src="https://cdn.tailwindcss.com/3.3.0"></script>
 
+    <%# Mapbox  %>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
+    <the-script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></the-script>
   </head>
 
   <body>
     <%= render "shared/navbar2" %>
-    <%= render "shared/banner" %>
     <%= render "shared/flashes" %>
     <%= yield %>
 

@@ -67,6 +67,7 @@
       id="navbarSupportedContent1"
       data-te-collapse-item>
       <!-- Logo -->
+
       <a
         class="
           mr-2
@@ -77,18 +78,20 @@
           focus:text-neutral-900
           lg:mb-0
           lg:mt-0
-        "
-        href="#">
+          "
+         
+    <%= link_to rooms_path do %>
         <img
           src="<%= asset_path('logo.png') %>"
           style="height: 60px"
           alt=""
           loading="lazy">
       </a>
+    <% end %>
     </div>
     <!-- Right elements -->
     <div class="relative flex items-center">
-  
+
         <!-- First dropdown menu -->
         <ul
           class="
@@ -306,7 +309,7 @@
   </div>
 </nav>
 
-<script>
+<%# <script>
   // Initialization for ES Users
 import {
   Collapse,
@@ -315,4 +318,4 @@ import {
 } from "tw-elements";
 
 initTE({ Collapse, Dropdown });
-</script>
+</script> %>
