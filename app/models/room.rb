@@ -4,8 +4,24 @@ class Room < ApplicationRecord
   has_many :users, through: :bookings
   has_many_attached :photos
   validates :name, presence: true, uniqueness: true
-  # validates :facility_name, presence: true
-  # validates :location, presence: true
-  # validates :price_per_hour, presence: true
-  # validates :capacity, inclusion: { in: (1..10).to_a }
+  # include PgSearch::Model
+  # pg_search_scope :search_by_equipment,
+  #   against: [ :equipment ],
+  #   using: {
+  #     tsearch: { prefix: true }
+  #   }
+
+  # include PgSearch::Model
+  # pg_search_scope :search_by_category,
+  #   against: [ :facility_name ],
+  #   using: {
+  #     tsearch: { prefix: true }
+  #   }
+
+  # include PgSearch::Model
+  # pg_search_scope :search_by_location,
+  #   against: [ :location ],
+  #   using: {
+  #     tsearch: { prefix: true }
+  #   }
 end
