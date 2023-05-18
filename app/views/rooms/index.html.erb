@@ -8,15 +8,15 @@
 
   <div class="row justify-content-center">
   <div class="col-sm-8 my-3">
-    <%= form_with url: rooms_path, method: :get, class: "d-flex" do |form| %>
+    <%= form_with url: rooms_path, method: :get, class: "flex gap-4" do |form| %>
       <%= text_field_tag :query,
             params[:query],
-            class: "form-control",
+            class: "",
             placeholder: "Type your address"
         %>
-      <%= select_tag :category, options_for_select(Room::CATEGORIES, params[:category]), prompt: "Select a category" %>
-      <%= select_tag :equipment, options_for_select(Room::EQUIPMENTS, params[:equipment]), prompt: "Select an equipment" %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <div class="row justify-content-center w-64"><%= select_tag :category, options_for_select(Room::CATEGORIES, params[:category]), prompt: "Select a category" %> </div>
+      <div class="w-64"><%= select_tag :equipment, options_for_select(Room::EQUIPMENTS, params[:equipment]), prompt: "Select an equipment" %></div>
+      <%= submit_tag "Search", name: "", class: "bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded" %>
     <% end %>
   </div>
 </div>
