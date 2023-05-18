@@ -1,8 +1,27 @@
-<p>Add and manage your rooms</p>
-<p>Your rooms</p> <hr>
-<% @rooms.each do |room| %>
-<%= room.name %> <br>
-<% end %> <br>
+<h2 class="text-4xl font-bold dark:text-black">Your Rooms</h2>
 
-<%= link_to "Your Bookings", hospital_bookings_path %>
+<!-- room name, equipments, capacity, price -->
+
+<div class="h-screen flex flex-col space-y-4 mx-2 py-2">
+<% @rooms.each do |room| %>
+  <div class="h-32 max-w-sm w-1/2 lg:max-w-full flex">
+    <div class="h-48 lg:h-auto lg:w-48 flex-none bg-center bg-cover rounded-t lg:rounded-t-none lg:rounded-l overflow-hidden" style="background-image: url(<%= asset_path('pic1.jpg') %>); title="Woman holding a mug">
+    </div>
+    <div class="grow align-middle border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+      <div class="mb-8">
+        <div class="text-gray-900 font-bold text-md mb-2"><%= room.name %></div>
+        <p class="text-gray-700 text-justify text-ellipsis overflow-hidden">Price: <%= room.price_per_hour %></p>
+        <p class="text-gray-700 text-justify text-ellipsis overflow-hidden">Equipments: <%= room.equipment %></p>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+</div>
+
+<button class="bg-blue-500 hover:bg-white text-white font-bold py-2 px-4 rounded-full">
+  <%= link_to "Your Bookings", hospital_bookings_path %>
+</button>
+<button class="bg-blue-500 hover:bg-white text-white font-bold py-2 px-4 rounded-full">
 <%= link_to "List Room", new_room_path %>
+</button>

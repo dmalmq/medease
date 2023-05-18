@@ -48,6 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_18_065621) do
     t.bigint "user_id", null: false
     t.date "date"
     t.time "startFrom"
+    t.text "comment"
     t.integer "hours", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
