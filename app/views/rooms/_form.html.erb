@@ -1,9 +1,9 @@
 <%= simple_form_for(@room) do |f| %>
   <%= f.input :name %>
   <%= f.input :facility_name %>
-  <%= f.input :category, collection: categories, selected: "General Surgery" %>
-  <%= f.input :equipment, collection: equipments, selected: "" %>
-  <%= f.input :location, label: "Address" %>
+  <%= f.input :category, collection: Room::CATEGORIES, selected: "General Surgery" %>
+  <%= f.input :equipment, collection: Room::EQUIPMENTS, selected: "" %>
+  <%= f.input :address, label: "Address" %>
   <%= f.input :price_per_hour %>
   <%= f.input :capacity, collection: (1..20).to_a %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>

@@ -53,6 +53,8 @@ gem "bootsnap", require: false
 
 gem "geocoder"
 
+gem "pg_search"
+
 # Use Sass to process CSS
 gem "sassc-rails"
 gem "font-awesome-sass", "~> 6.4.0"
