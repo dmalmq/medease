@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def index
     @bookings = policy_scope(Booking)
   end
@@ -8,7 +7,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
   end
-
+  
   def new
     @room = Room.find(params[:room_id])
     @booking = Booking.new
