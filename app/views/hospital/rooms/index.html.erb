@@ -2,7 +2,7 @@
 
 <!-- room name, equipments, capacity, price -->
 
-<div class="h-screen flex flex-col space-y-4 mx-2 py-2">
+<div class="flex flex-col space-y-4 mx-2 py-2">
 <% @rooms.each do |room| %>
   <div class="h-32 max-w-sm w-1/2 lg:max-w-full flex">
     <div class="h-48 lg:h-auto lg:w-48 flex-none bg-center bg-cover rounded-t lg:rounded-t-none lg:rounded-l overflow-hidden" style="background-image: url(<%= asset_path('pic1.jpg') %>); title="Woman holding a mug">
@@ -18,6 +18,8 @@
 <% end %>
 
 </div>
+
+<br>
 
 <button class="bg-blue-500 hover:bg-white text-white font-bold py-2 px-4 rounded-full">
   <%= link_to "Your Bookings", hospital_bookings_path %>
