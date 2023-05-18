@@ -1,3 +1,5 @@
+<script src="app/javascripts/application.js"></script>
+
 <div class="mt-12 inline-flex flex-row space-x-2 px-2 mx-4">
   <div class="flex-1">
     <%= image_tag "https://images.unsplash.com/photo-1512678080530-7760d81faba6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2674&q=80", alt:"room pic", style: "height: 100%"%>
@@ -27,10 +29,10 @@
         <div>
             <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
                 <p class="text-gray-600 font-bold">
-                    Location
+                    Address
                 </p>
                 <p>
-                    <%= @room.location %>
+                    <%= @room.address %>
                 </p>
             </div>
             <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">

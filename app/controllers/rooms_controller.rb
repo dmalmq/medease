@@ -2,7 +2,19 @@ class RoomsController < ApplicationController
   def index
     @rooms = Room.all
     @rooms = policy_scope(Room)
+
+    if params[:query].present? || params[:category].present? || params[:equipment].present?
+      # Search for rooms within a 10 km radius
+      @rooms = Room.near(params[:query], 10) if params[:query].present?
+
+      # Filter by category if selected
+      @rooms = @rooms.where(category: params[:category]) if params[:category].present?
+
+      # Filter by equipment if selected
+      @rooms = @rooms.where(equipment: params[:equipment]) if params[:equipment].present?
+    end
   end
+
 
   def show
     @room = Room.find(params[:id])
@@ -12,8 +24,6 @@ class RoomsController < ApplicationController
 
   def new
     @room = Room.new
-    @categories = CATEGORIES
-    @equipments = EQUIPMENTS
     authorize @room
   end
 
@@ -32,6 +42,10 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:name, :facility_name, :location, :price_per_hour, :capacity, photos: [])
+    params.require(:room).permit(:name, :facility_name, :address, :price_per_hour, :capacity, photos: [], category:, equipment:)
   end
 end
+
+# if params[:query].present? || params[:category].present? || params[:equipment].present?
+#   @query_search = params[:query]
+#   @rooms = Room.near(@query_search, 10)

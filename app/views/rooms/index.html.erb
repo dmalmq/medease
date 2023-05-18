@@ -6,6 +6,30 @@
 
 <%= render "shared/date" %>
 
+  <div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: rooms_path, method: :get, class: "d-flex" do |form| %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Type your address"
+        %>
+      <%= select_tag :category, options_for_select(Room::CATEGORIES, params[:category]), prompt: "Select a category" %>
+      <%= select_tag :equipment, options_for_select(Room::EQUIPMENTS, params[:equipment]), prompt: "Select an equipment" %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+
+  </div>
+</div>
+
 <div class="mx-4 mt-6">
 <div class="grid grid-cols-3 gap-6">
   <% @rooms.each do |room| %>
@@ -26,8 +50,8 @@
 
     <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
       <div class="flex justify-between">
-        <p>Location: </p>
-       <p><%= room.location %></p>
+        <p>Address: </p>
+       <p><%= room.address %></p>
       </div>
       <div class="flex justify-between">
         <p>Price: <%= room.price_per_hour %> ¥/h</p>
