@@ -1,8 +1,8 @@
-class Hospital::BookingPolicy < ApplicationPolicy
+class Hospital::RoomPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
-      user.bookings_as_hospital
+      user.rooms
     end
   end
 end
