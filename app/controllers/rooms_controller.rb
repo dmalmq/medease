@@ -12,6 +12,8 @@ class RoomsController < ApplicationController
 
   def new
     @room = Room.new
+    @categories = CATEGORIES
+    @equipments = EQUIPMENTS
     authorize @room
   end
 
