@@ -46,7 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_17_035442) do
     t.bigint "room_id", null: false
     t.bigint "user_id", null: false
     t.date "date"
-    t.time "from"
+    t.time "startFrom"
     t.integer "hours", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
