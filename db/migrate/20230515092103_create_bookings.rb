@@ -4,7 +4,7 @@ class CreateBookings < ActiveRecord::Migration[7.0]
       t.references :room, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
       t.date :date
-      t.time :from
+      t.time :startFrom
       t.integer :hours, default: 1
       t.boolean :status, default: false
 
