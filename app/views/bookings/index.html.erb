@@ -1,7 +1,23 @@
 <div class="flex">
-
 <div class="container flex-1 flex flex-col">
 <h1 class="ml-12 my-12 text-2xl font-bold">My bookings:</h1>
+
+
+
+
+  <ul class="nav tabs-underlined" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <span class="nav-link tab-underlined active" id= <%="#{params[:tab]}-tab"%> data-bs-toggle="tab" data-bs-target="#bookings-tab-pane" role="tab" aria-controls="bookings-tab-pane" aria-selected="true"><%= link_to "Pending", bookings_path(tab: "pending") %></span>
+  </li>
+  <li class="nav-item" role="presentation">
+    <span class="nav-link tab-underlined" id=<%="#{params[:tab]}-tab"%> data-bs-toggle="tab" data-bs-target="#requests-tab-pane" role="tab" aria-controls="requests-tab-pane" aria-selected="false"><%= link_to "Upcoming", bookings_path(tab: "upcomming") %></span>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+
+</div>
+
+
   <% @bookings.each do |booking| %>
     <div
       class="
