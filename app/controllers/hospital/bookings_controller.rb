@@ -7,4 +7,18 @@ class Hospital::BookingsController < ApplicationController
     # @rooms = policy_scope([:hospital, Room]) --> what if i want to policy both?
     # @rooms = Room.where(user: user)
   end
+
+  def update
+    @booking = Booking.find(params[:id])
+    authorize [:hospital, @booking]
+    if @booking.update(booking_params)
+      redirect_to hospital_bookings_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def booking_params
+    params.require(:booking).permit(:status, :date, :hours, :from, :comment).merge(user: current_user)
+  end
 end
