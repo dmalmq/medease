@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :bookings, only: [:destroy, :index]
 
   namespace :hospital do
-    resources :bookings, only: [:index]
+    resources :bookings, only: [:index, :update]
     resources :rooms, only: [:index]
     # equivalent to => get '/<namespace>/bookings', to: '<namespace>/bookings#index'
   end
