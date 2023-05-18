@@ -119,10 +119,11 @@
 <div class="flex-1 container mt-12 mr-16">
   <h1 class="text-2xl font-bold mb-8">My Calandar:</h1>
   <%= month_calendar(events: @bookings) do |date, bookings| %>
+      
     <%= date.day %>
 
     <% bookings.each do |booking| %>
-      <%= booking.room.name %>
+      <p class="font-semibold text-sm"><%= booking.room.name %></p>
     <% end %>
   <% end %>
 
