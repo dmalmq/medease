@@ -32,7 +32,7 @@ class RoomsController < ApplicationController
     @room.user = current_user
     authorize @room
     if @room.save
-      redirect_to hospital_rooms_path
+      redirect_to hospital_bookings_path
     else
       # display the form for the user again
       render :new, status: :unprocessable_entity
@@ -42,7 +42,7 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:name, :facility_name, :address, :price_per_hour, :capacity, photos: [], category:, equipment:)
+    params.require(:room).permit(:name, :facility_name, :address, :price_per_hour, :capacity, :category, :equipment, photos: [])
   end
 end
 
