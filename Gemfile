@@ -1,4 +1,4 @@
-source "https://rubygems.rg"
+source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
@@ -61,6 +61,7 @@ gem "tailwindcss-rails", "~> 2.0"
 # gem "image_processing", "~> 1.2"
 gem 'simple_form-tailwind'
 gem "autoprefixer-rails"
+gem "simple_calendar", "~> 2.4"
 # gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 group :development, :test do
