@@ -1,5 +1,5 @@
 <div class="flex">
-  
+
 <div class="container flex-1 flex flex-col">
 <h1 class="ml-12 my-12 text-2xl font-bold">My bookings:</h1>
   <% @bookings.each do |booking| %>
@@ -26,7 +26,7 @@
       </h5>
       <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
         <p>Date: <%= booking.date %></p>
-        <p><%= booking.from %></p>
+        <p><%= booking.startFrom %></p>
         <p>Duration: <%= booking.hours %></p>
 
       </p>
@@ -94,7 +94,7 @@
         data-te-ripple-color="light">
       <%= link_to "Cancel", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Cancel your appointment for room: #{booking.room.name}?" }  %>
       </button>
- 
+
     </div>
 
   <% end %>
