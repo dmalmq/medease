@@ -1,7 +1,7 @@
 <h1>Hospital Profile</h1>
 
 <% @bookings.each do |booking| %>
-<%= booking.start_time %>
+<%= booking.from %>
 <%= booking.room.name %>
 <% end %>
 
