@@ -1,13 +1,17 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = policy_scope(Booking)
+    if params[:tab] == "pending"
+      @bookings = policy_scope(Booking.where(status: "pending"))
+    else
+      @bookings = policy_scope(Booking.where(status: "confirmed"))
+    end
   end
 
   def show
     @booking = Booking.find(params[:id])
     authorize @booking
   end
-  
+
   def new
     @room = Room.find(params[:room_id])
     @booking = Booking.new
