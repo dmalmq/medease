@@ -1,4 +1,7 @@
-<h1>Hospital Profile</h1>
+<p>See your bookings</p>
+<%#= current_user.rooms.first.facility_name ? current_user.rooms.first.facility_name : "Add your first room" %> <hr>
+<%= current_user.first_name %> <br><br>
+
 
 <p>Your upcomming bookings</p> <hr>
 <% @bookings.each do |booking| %>
