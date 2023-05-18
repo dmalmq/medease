@@ -4,18 +4,18 @@
 
 <%= render "shared/banner" %>
 
-<%= render "shared/date" %>
 
-  <div class="row justify-content-center">
-  <div class="col-sm-8 my-3">
-    <%= form_with url: rooms_path, method: :get, class: "flex gap-8" do |form| %>
+  <div class="row justify-content-center mx-auto">
+  <div class="col-sm-8 mt-10">
+    <%= form_with url: rooms_path, method: :get, class: "mx-auto justify-content-center flex gap-10" do |form| %>
+<%= render "shared/date" %>
       <%= text_field_tag :query,
             params[:query],
             class: "",
             placeholder: "Type your address"
         %>
-      <div class="row justify-content-center w-64 px-2"><%= select_tag :category, options_for_select(Room::CATEGORIES, params[:category]), prompt: "Select a category" %> </div>
-      <div class="row justify-content-center w-64 px-2"><%= select_tag :equipment, options_for_select(Room::EQUIPMENTS, params[:equipment]), prompt: "Select an equipment" %></div>
+      <div class="row justify-content-center px-2"><%= select_tag :category, options_for_select(Room::CATEGORIES, params[:category]), prompt: "Select a category" %> </div>
+      <div class="row justify-content-center px-2"><%= select_tag :equipment, options_for_select(Room::EQUIPMENTS, params[:equipment]), prompt: "Select an equipment" %></div>
       <%= submit_tag "Search", name: "", class: "bg-blue-500 hover:bg-blue-700 text-white py-2 px-8 rounded" %>
     <% end %>
   </div>
@@ -37,7 +37,7 @@
   class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
     <%= link_to room_path(room) do %>
     <img
-      class="rounded-t-lg h-80"
+      class="rounded-t-lg bg-cover w-full h-80 bg-center"
       src=<%= asset_path(picture.sample) %>
       alt= "" />
   <% end %>
