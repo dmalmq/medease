@@ -1,3 +1,5 @@
+
+<!-- <%= image_tag "pic1.jpg", alt:"room pic", class: "rounded-lg" %>
 <script src="app/javascripts/application.js"></script>
 
 <div class="mt-12 inline-flex flex-row space-x-2 px-2 mx-4">
@@ -11,9 +13,54 @@
     <%= image_tag "pic2.jpg", alt:"room pic", class: "rounded-lg" %>
     <%= image_tag "pic3.jpg", alt:"room pic", class: "rounded-lg" %>
     <%= image_tag "pic4.jpg", alt:"room pic", class: "rounded-lg" %>
-  </div>
-</div>
+-->
 
+<div class="inline-flex flex-row space-x-2 px-2 mx-4 py-2">
+  <div class="flex basis-2/3">
+  <div class="max-w-4xl  bg-white w-full rounded-lg shadow-xl">
+          <div class="p-4 border-b">
+              <h2 class="text-4xl font-bold">
+                  <%= @room.facility_name %>
+              </h2>
+              <p class="text-2xl text-gray-500">
+                  <%= @room.name%> - <%= @room.category %>
+              </p>
+          </div>
+          <div>
+            <%= image_tag "https://images.unsplash.com/photo-1512678080530-7760d81faba6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2674&q=80", alt:"room pic", style: "height: 450px; width:800px" %>
+          </div>
+          <div>
+              <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                  <p class="text-gray-600 font-bold">
+                      Location
+                  </p>
+                  <p>
+                      <%= @room.location %>
+                  </p>
+              </div>
+              <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                  <p class="text-gray-600 font-bold">
+                      Capacity
+                  </p>
+                  <p>
+                      <%= @room.capacity %>
+                  </p>
+              </div>
+              <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                  <p class="text-gray-600 font-bold">
+                      Equipments
+                  </p>
+                  <p>
+                    <%= @room.equipment %>
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="flex basis-1/3">
+    <div class="container w-96 flex-1">
+      <%= render 'bookings/form-2' %>
 <div class="flex flex-row space-x-2 py-0 px-2 mr-5">
   <div class="flex flex-col gap-2 justify-center basis-2/3">
 <div class="flex justify-center px-4">
@@ -54,10 +101,48 @@
         </div>
     </div>
   </div>
-  </div>
-<div class="container flex-1">
-  <%= render 'bookings/form-2' %>
+
 </div>
 
-</div>  </div>
+<!--
+<div class="flex flex-row space-x-2 py-0 px-2 mr-5 ">
+  <div class="flex justify-center px-4">
+    <div class="max-w-4xl  bg-white w-full rounded-lg shadow-xl">
+          <div class="p-4 border-b">
+              <h2 class="text-4xl font-bold">
+                  <%= @room.facility_name %>
+              </h2>
+              <p class="text-2xl text-gray-500">
+                  <%= @room.name%> - <%= @room.category %>
+              </p>
+          </div>
+          <div>
+              <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                  <p class="text-gray-600 font-bold">
+                      Location
+                  </p>
+                  <p>
+                      <%= @room.location %>
+                  </p>
+              </div>
+              <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                  <p class="text-gray-600 font-bold">
+                      Capacity
+                  </p>
+                  <p>
+                      <%= @room.capacity %>
+                  </p>
+              </div>
+              <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+                  <p class="text-gray-600 font-bold">
+                      Equipments
+                  </p>
+                  <p>
+                    <%= @room.equipment %>
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
+-->
