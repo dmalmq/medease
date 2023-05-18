@@ -1,24 +1,26 @@
-<h1>Hospital Profile</h1>
+<p>See your bookings</p>
+<%#= current_user.rooms.first.facility_name ? current_user.rooms.first.facility_name : "Add your first room" %> <hr>
+<%= current_user.first_name %> <br><br>
+
 
 <p>Your upcomming bookings</p> <hr>
-<% @bookings.each do |booking| %>
+<% @upcomming.each do |booking| %>
 <%= booking.room.name %>
-<%= booking.user.first_name %> <br>
+<%= booking.user.first_name %>
+<%= booking.comment %> <br>
 <% end %> <br>
 <%# need to add a method to only show accepted bookings %>
 
 <p>Your open bookings</p> <hr>
-<% @bookings.each do |booking| %>
-<%= booking.room.name %>
-<%= booking.status %> <br>
+<% @requests.each do |request| %>
+<%= request.room.name %>
+<%= request.status %>
+<%= request.comment %> <br>
+<%#= link_to "Accept", # %> <%#= link_to "Decline", # %>
 <% end %> <br>
 <%# need to add method to only show not accepted bookings %>
 
-<p>Your rooms</p> <hr>
-<% @rooms.each do |room| %>
-<%= room.name %> <br>
-<% end %> <br>
-<%# need to add pundit to only show rooms of that user %>
 
+<%# need to add pundit to only show rooms of that user %>
+<%= link_to "Your Rooms", hospital_rooms_path %>
 <%= link_to "List Room", new_room_path %>
-<%= link_to "Home", rooms_path %>

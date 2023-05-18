@@ -1,7 +1,10 @@
 class BookingsController < ApplicationController
-
   def index
-    @bookings = policy_scope(Booking)
+    if params[:tab] == "pending"
+      @bookings = policy_scope(Booking.where(status: "pending"))
+    else
+      @bookings = policy_scope(Booking.where(status: "confirmed"))
+    end
   end
 
   def show
@@ -38,6 +41,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:date, :hours, :from).merge(user: current_user)
+    params.require(:booking).permit(:date, :hours, :from, :comment).merge(user: current_user)
   end
 end
