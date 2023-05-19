@@ -1,5 +1,5 @@
 <div class="entire" data-controller="booking-form" data-action= "change->booking-form#filtering" data-booking-form-target="searchBox">
-  <% picture = ["https://images.unsplash.com/photo-1551076805-e1869033e561?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2664&q=80", "https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80", "https://images.unsplash.com/photo-1512678080530-7760d81faba6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2674&q=80"] %>
+  <%= cl_image_tag cocktail.photo.key, alt: "cocktail image", class: 'roomPic' %>
   <%= render "shared/banner" %>
   <div class="flex justify-content-center mx-auto">
     <div class="col-sm-8 mt-10">
