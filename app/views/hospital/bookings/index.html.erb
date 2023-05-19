@@ -3,9 +3,74 @@
   <p><%= current_user.rooms.any? ? "#{current_user.rooms.first.facility_name}" : "Welcome to your hospital's page, add your first room."%>
   - <%= current_user.first_name %> <%= current_user.last_name %></p>
 
+
+
   <div class="flex gap-4 ml-12">
-    <%= link_to "Your Rooms", hospital_rooms_path %>
-    <%= link_to "List a new room", new_room_path %>
+  <button
+        type="button"
+        class="
+          inline-block
+          rounded
+          bg-slate-500
+          px-6
+          pb-2
+          mt-4
+          pt-2.5
+          text-xs
+          font-medium
+          uppercase
+          leading-normal
+          text-white
+          shadow-[0_4px_9px_-4px_#3b71ca]
+          transition
+          duration-150
+          ease-in-out
+          hover:bg-primary-600
+          hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+          focus:bg-primary-600
+          focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+          focus:outline-none
+          focus:ring-0
+          active:bg-primary-700
+          active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+        "
+        data-te-ripple-init
+        data-te-ripple-color="light">
+        <%= link_to "Your Rooms", hospital_rooms_path %>
+      </button>
+
+ <button
+        type="button"
+        class="
+          inline-block
+          rounded
+          bg-slate-500
+          px-6
+          pb-2
+          mt-4
+          pt-2.5
+          text-xs
+          font-medium
+          uppercase
+          leading-normal
+          text-white
+          shadow-[0_4px_9px_-4px_#3b71ca]
+          transition
+          duration-150
+          ease-in-out
+          hover:bg-primary-600
+          hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+          focus:bg-primary-600
+          focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+          focus:outline-none
+          focus:ring-0
+          active:bg-primary-700
+          active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+        "
+        data-te-ripple-init
+        data-te-ripple-color="light">
+        <%= link_to "List a new room", new_room_path %>
+      </button>
   </div>
 
 
