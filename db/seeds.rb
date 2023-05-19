@@ -23,12 +23,12 @@ room.save!
 
 puts "1"
 file = URI.open("https://res.cloudinary.com/dqvkknmfo/image/upload/v1684472017/development/k4ighymky5dp04wex96ldf62qjjh.jpg")
-room = Room.new(name: 'MRI Suite', facility_name: 'Asahi Hospital', address: 'Osaka, Japan', equipment: 'Operating Table', price_per_hour: 12000, category: 'General Surgery', capacity: 4, user: randosample)
+room = Room.new(name: 'MRI Suite', facility_name: 'Asahi Hospital', address: 'Tokyo, Japan', equipment: 'Surgical Lights', price_per_hour: 12000, category: 'General Surgery', capacity: 4, user: randosample)
 room.photos.attach(io: file, filename: "nes.png", content_type: "image/jpg")
 room.save
 
 file = URI.open("https://res.cloudinary.com/dqvkknmfo/image/upload/v1684472013/development/qliknvezdg0ehmx61981qvuedcld.jpg")
-room = Room.new(name: 'Operating Room', facility_name: 'Sakura Hospital', address: 'Kyoto, Japan', equipment: 'Operating Table', price_per_hour: 15000, category: 'Cardiothoracic Surgery', capacity: '5', user: randosample)
+room = Room.new(name: 'Operating Room', facility_name: 'Sakura Hospital', address: 'Tokyo, Japan', equipment: 'Surgical Lights', price_per_hour: 15000, category: 'Cardiothoracic Surgery', capacity: '5', user: randosample)
 room.photos.attach(io: file, filename: "nes.png", content_type: "image/jpg")
 room.save
 
