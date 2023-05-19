@@ -13,6 +13,7 @@
         <p class="text-gray-700 text-justify text-ellipsis overflow-hidden">Price: <%= room.price_per_hour %></p>
         <p class="text-gray-700 text-justify text-ellipsis overflow-hidden">Equipments: <%= room.equipment %></p>
         <%= link_to "Edit", edit_hospital_room_path(room) %>
+        <%= link_to "Delete", hospital_room_path(room), data: { turbo_method: :delete, turbo_confirm: "Delete #{room.name} ?"} %>
       </div>
     </div>
   </div>

@@ -19,6 +19,13 @@ class Hospital::RoomsController < ApplicationController
     end
   end
 
+  def destroy
+    @room = Room.find(params[:id])
+    authorize([:hospital, @room])
+    @room.destroy
+    redirect_to hospital_rooms_path, status: :see_other
+  end
+
   private
 
   def room_params
