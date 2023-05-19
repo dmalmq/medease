@@ -5,4 +5,12 @@ class Hospital::RoomPolicy < ApplicationPolicy
       user.rooms
     end
   end
+
+  def edit?
+    update?
+  end
+
+  def update?
+    true
+  end
 end

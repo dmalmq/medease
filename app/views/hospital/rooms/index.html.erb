@@ -12,6 +12,7 @@
         <div class="text-gray-900 font-bold text-md mb-2"><%= room.name %></div>
         <p class="text-gray-700 text-justify text-ellipsis overflow-hidden">Price: <%= room.price_per_hour %></p>
         <p class="text-gray-700 text-justify text-ellipsis overflow-hidden">Equipments: <%= room.equipment %></p>
+        <%= link_to "Edit", edit_hospital_room_path(room) %>
       </div>
     </div>
   </div>
