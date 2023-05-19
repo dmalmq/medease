@@ -2,16 +2,14 @@
   <%= simple_form_for([@room, @booking]) do |f| %>
 
     <%= f.input :date, html5: true %>
+    <%= f.input :startFrom, label: "From:", html5: true %>
 
-
-
-    <%= f.input :startFrom, label: "From:" %>
     <%= f.input :hours, input_html: {
       class: 'hour-input',
       id: 'hour-input',
       min: 1,
       data: {
-        action: "change->booking-form#calculation"
+        action: "change->booking-form#calculation",
       }
     } %>
     <%= f.input :comment, label: "Operation details:" %>
