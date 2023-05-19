@@ -31,20 +31,19 @@
       src=<%= asset_path(picture.sample) %>
       alt= "" />
   <% end %>
-  <div class="p-6">
-              <h5
-      class="mb-2 text-md font-medium text-neutral-800 flex justify-between">
-                <p class="font-bold text-md"><%= room.name %></p>
-                <p class="font-bold text-md"><%= room.category %></p>
-              </h5>
-              <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-                <div class="flex justify-between">
-                  <p>Address: </p>
-                  <p><%= room.address %></p>
-                </div>
-                <div class="flex justify-between">
-                  <p>Price: <%= room.price_per_hour %> ¥/h</p>
-                  <p>Capacity: <%= room.capacity %> People</p>
+  <div class="px-4 py-4">
+              <div class="flex justify-between">
+                <h2 class="text-xl pb-0 pt-0 font-bold" > <%= room.facility_name %> </h2>
+                <p class="text-sm font-bold italic"><%= room.address %></p>
+              </div>
+
+              <div class="pb-0 pt-0 mb-1 text-md font-medium text-neutral-800 flex justify-between">
+                <p class="font-medium text-md"><%= room.category %></p>
+                <p class="text-sm font-bold"></p>
+              </div>
+                <div class="pb-0 pt-0 flex justify-between">
+                  <p>¥<%= room.price_per_hour %> /hr</p>
+                  <p class="text-slate-400">Capacity: <%= room.capacity %> People</p>
                 </div>
               </p>
             </button>

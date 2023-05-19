@@ -1,6 +1,11 @@
-<div class="flex">
+<div class="flex gap-2 ml-12 pt-3 justify-end pb-0">
+    <%= link_to "Your Rooms", hospital_rooms_path, class: "text-slate-100 bg-blue-500 hover:text-blue-700 hover:bg-white active:bg-blue-600 font-bold py-2 px-4 mx-2" %>
+    <%= link_to "List a new room", new_room_path, class: "text-slate-100 bg-blue-500 hover:text-blue-700 hover:bg-white active:bg-blue-600 font-bold py-2 px-4 mx-2" %>
+</div>
+
+<div class="flex pt-0 mt-0">
   <div class="flex flex-col flex-1">
-    <p class="text-2xl font-bold ml-12 mt-12">Your upcoming bookings</p>
+    <p class="text-2xl font-bold ml-12 ">Upcoming Bookings</p>
     <% @upcomming.each do |booking| %>
     <div
       class="
@@ -17,51 +22,21 @@
         class="
           mb-2
           text-xl
-          font-medium
+          font-bold
           leading-tight
           text-neutral-800
         ">
-        <%= booking.room.name %>
+        <%= booking.room.category %>
       </h5>
       <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-        <p><%= booking.user.first_name %></p>
-        <p><%= booking.room.name %></p>
-        <p><%= booking.startFrom %></p>
-        <p>Duration: <%= booking.hours %></p>
+        <p>Room: <%= booking.room.name %></p>
+        <p>Date: <%= booking.date %></p>
+        <p>Time: <%= booking.startFrom %></p>
+        <p>Duration: <%= booking.hours %> hours</p>
+        <p class="text-neutral-600">Details: <%= booking.comment %></p>
+
         <p><%= booking.comment %></p>
       </p>
-      <button
-        type="button"
-        class="
-          inline-block
-          rounded
-          bg-slate-500
-          px-6
-          pb-2
-          mt-4
-          pt-2.5
-          text-xs
-          font-medium
-          uppercase
-          leading-normal
-          text-white
-          shadow-[0_4px_9px_-4px_#3b71ca]
-          transition
-          duration-150
-          ease-in-out
-          hover:bg-primary-600
-          hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
-          focus:bg-primary-600
-          focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
-          focus:outline-none
-          focus:ring-0
-          active:bg-primary-700
-          active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
-        "
-        data-te-ripple-init
-        data-te-ripple-color="light">
-        More Info
-      </button>
       <button
         type="button"
         class="
@@ -97,7 +72,7 @@
     </div>
   <% end %>
     <%# need to add a method to only show accepted bookings %>
-    <p class="text-2xl font-bold ml-12">Your open bookings</p>
+    <p class="text-2xl font-bold ml-12">Open Bookings</p>
  <% @requests.each do |request| %>
     <div
       class="
@@ -112,22 +87,28 @@
       ">
       <h5
         class="
-          mb-2
+          mb-4
           text-xl
-          font-medium
+          font-bold
           leading-tight
           text-neutral-800
         ">
-        <%= request.room.name %>
+        <%= request.room.category %>
       </h5>
-      <p class="mb-4 text-base text-neutral-600">
-        <%= request.status %>
-         <%= request.comment %>
-         <%= request.comment %>
+      <p class="mb-1 text-base text-blue-800">
+        Status: <%= request.status %>
+      </p>
+        <p>Room: <%= request.room.name %></p>
+        <p>Date: <%= request.date %></p>
+        <p>Time: <%= request.startFrom %></p>
+        <p>Duration: <%= request.hours %> hours</p>
+
+      <p class="mb-1 pb-0 text-base text-neutral-600">
+        Details: <%= request.comment %>
       </p>
       <% if request.pending? %>
         <%= simple_form_for [:hospital, request] do |f| %>
-        <p class="mb-4 text-base text-neutral-800">
+        <p class="mb-2 pt-0 text-base text-neutral-800">
           <div class="flex gap-2">
           <%= f.input :status, as: :hidden, input_html: { value: 'confirmed'} %>
           <%= f.submit 'Accept', class: 'inline-block
@@ -190,15 +171,11 @@
     </div>
   <% end %>
 
-<div class="flex gap-4 ml-12">
-    <%= link_to "Your Rooms", hospital_rooms_path %>
-    <%= link_to "List a new room", new_room_path %>
-</div>
 
   </div>
 
-  <div class="flex-1 container mt-12 mr-16">
-  <h1 class="text-2xl font-bold mb-8">My Calandar:</h1>
+  <div class="flex-1 container  mr-16">
+  <h1 class="text-2xl font-bold mb-8">My Calendar:</h1>
   <%= month_calendar(events: @bookings) do |date, bookings| %>
     <%= date.day %>
     <% bookings.each do |booking| %>
