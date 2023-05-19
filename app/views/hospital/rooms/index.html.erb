@@ -12,13 +12,15 @@
   <% @rooms.each do |room| %>
     <div class="h-32 max-w-sm w-1/2 lg:max-w-full flex px-2">
       <div class="h-48 lg:h-auto lg:w-48 flex-none bg-center bg-cover rounded-t lg:rounded-t-none lg:rounded-l overflow-hidden" >
-        <%= cl_image_tag room.photos.first.key, alt: "room image", class: 'roomPic rounded-t-lg bg-cover w-full h-80 bg-center' %>
+        <%= cl_image_tag room.photos.first.key, alt: "room image", class: 'roomPic rounded-t-lg bg-cover w-full h-80 bg-center object-cover' %>
       </div>
       <div class="grow align-middle shadow bg-white rounded-b lg:rounded-b-none lg:rounded-r px-4 py-2 flex flex-col justify-between leading-normal">
         <div class="mb-8">
           <div class="text-gray-900 font-bold text-lg mb-2"><%= room.name %></div>
           <p class="text-gray-700 text-justify text-ellipsis overflow-hidden">Price: ¥<%= room.price_per_hour %> /hr</p>
+          <!--
           <p class="text-gray-700 text-justify text-ellipsis overflow-hidden">Capacity: <%= room.capacity %></p>
+          -->
           <p class="text-gray-700 text-justify text-ellipsis overflow-hidden">Equipments: <%= room.equipment %></p>
           <%= link_to "Edit", edit_hospital_room_path(room) %>
           <%= link_to "Delete", hospital_room_path(room), data: { turbo_method: :delete, turbo_confirm: "Delete #{room.name} ?"} %>
