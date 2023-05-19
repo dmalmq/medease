@@ -15,11 +15,15 @@ class RoomsController < ApplicationController
     end
   end
 
-
   def show
     @room = Room.find(params[:id])
     @booking = Booking.new
     authorize @room
+    @markers =
+      [{
+        lat: @room.latitude,
+        lng: @room.longitude
+      }]
   end
 
   def new
