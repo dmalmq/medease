@@ -1,38 +1,219 @@
-<p>See your bookings</p>
-<%#= current_user.rooms.first.facility_name ? current_user.rooms.first.facility_name : "Add your first room" %> <hr>
-<%= current_user.first_name %> <br><br>
-
-
-<p>Your upcomming bookings</p> <hr>
-<% @upcomming.each do |booking| %>
-<%= booking.room.name %>
-<%= booking.user.first_name %>
-<%= booking.comment %> <br>
-<% end %> <br>
-<%# need to add a method to only show accepted bookings %>
-
-<p>Your open bookings</p> <hr>
-<% @requests.each do |request| %>
-<%= request.room.name %>
-<%= request.status %>
-<%= request.comment %> <br>
-<% if request.pending? %>
-  <%= simple_form_for [:hospital, request] do |f| %>
-    <%= f.input :status, as: :hidden, input_html: { value: 'confirmed'} %>
-    <%= f.submit 'Accept', class: 'btn btn-info' %>
+<div class="flex">
+  <div class="flex flex-col flex-1">
+    <p class="text-2xl font-bold ml-12 mt-12">Your upcoming bookings</p>
+    <% @upcomming.each do |booking| %>
+    <div
+      class="
+        block
+        rounded-lg
+        bg-white
+        p-6
+        w-96
+        ml-12
+        my-8
+        shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]
+      ">
+      <h5
+        class="
+          mb-2
+          text-xl
+          font-medium
+          leading-tight
+          text-neutral-800
+        ">
+        <%= booking.room.name %>
+      </h5>
+      <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+        <p><%= booking.user.first_name %></p>
+        <p><%= booking.room.name %></p>
+        <p><%= booking.startFrom %></p>
+        <p>Duration: <%= booking.hours %></p>
+        <p><%= booking.comment %></p>
+      </p>
+      <button
+        type="button"
+        class="
+          inline-block
+          rounded
+          bg-slate-500
+          px-6
+          pb-2
+          mt-4
+          pt-2.5
+          text-xs
+          font-medium
+          uppercase
+          leading-normal
+          text-white
+          shadow-[0_4px_9px_-4px_#3b71ca]
+          transition
+          duration-150
+          ease-in-out
+          hover:bg-primary-600
+          hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+          focus:bg-primary-600
+          focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+          focus:outline-none
+          focus:ring-0
+          active:bg-primary-700
+          active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+        "
+        data-te-ripple-init
+        data-te-ripple-color="light">
+        More Info
+      </button>
+      <button
+        type="button"
+        class="
+          inline-block
+          rounded
+          bg-red-500
+          px-6
+          pb-2
+          mt-4
+          pt-2.5
+          text-xs
+          font-medium
+          uppercase
+          leading-normal
+          text-white
+          shadow-[0_4px_9px_-4px_#3b71ca]
+          transition
+          duration-150
+          ease-in-out
+          hover:bg-primary-600
+          hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+          focus:bg-primary-600
+          focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+          focus:outline-none
+          focus:ring-0
+          active:bg-primary-700
+          active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+        "
+        data-te-ripple-init
+        data-te-ripple-color="light">
+        <%= link_to "Cancel", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Cancel your appointment for room: #{booking.room.name}?" }  %>
+      </button>
+    </div>
   <% end %>
-  <%= simple_form_for request do |f| %>
-    <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
-    <%= f.submit 'Reject', class: 'btn btn-light' %>
+    <%# need to add a method to only show accepted bookings %>
+    <p class="text-2xl font-bold ml-12">Your open bookings</p>
+ <% @requests.each do |request| %>
+    <div
+      class="
+        block
+        rounded-lg
+        bg-white
+        p-6
+        w-96
+        ml-12
+        my-8
+        shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]
+      ">
+      <h5
+        class="
+          mb-2
+          text-xl
+          font-medium
+          leading-tight
+          text-neutral-800
+        ">
+        <%= request.room.name %>
+      </h5>
+      <p class="mb-4 text-base text-neutral-600">
+        <%= request.status %>
+         <%= request.comment %>
+         <%= request.comment %>
+      </p>
+      <% if request.pending? %>
+        <%= simple_form_for [:hospital, request] do |f| %>
+        <p class="mb-4 text-base text-neutral-800">
+          <div class="flex gap-2">
+          <%= f.input :status, as: :hidden, input_html: { value: 'confirmed'} %>
+          <%= f.submit 'Accept', class: 'inline-block
+          rounded
+          bg-slate-500
+          px-6
+          pb-2
+          mt-4
+          pt-2.5
+          text-xs
+          font-medium
+          uppercase
+          leading-normal
+          text-white
+          shadow-[0_4px_9px_-4px_#3b71ca]
+          transition
+          duration-150
+          ease-in-out
+          hover:bg-primary-600
+          hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+          focus:bg-primary-600
+          focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+          focus:outline-none
+          focus:ring-0
+          active:bg-primary-700
+          active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]' %>
+          </p>
+        <% end %>
+        <%= simple_form_for request do |f| %>
+          <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+          <%= f.submit 'Reject', class: ' inline-block
+          rounded
+          bg-red-500
+          px-6
+          pb-2
+          mt-4
+          pt-2.5
+          text-xs
+          font-medium
+          uppercase
+          leading-normal
+          text-white
+          shadow-[0_4px_9px_-4px_#3b71ca]
+          transition
+          duration-150
+          ease-in-out
+          hover:bg-primary-600
+          hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+          focus:bg-primary-600
+          focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+          focus:outline-none
+          focus:ring-0
+          active:bg-primary-700
+          active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]' %>
+        <% end %>
+      <% else %>
+        <p class='booking-tag'><%= request.status %></p>
+      <% end %>
+      </div>
+    </div>
   <% end %>
-<% else %>
-  <p class='booking-tag'><%= request.status %></p>
-<% end %>
-<%#= link_to "Accept", # %> <%#= link_to "Decline", # %>
-<% end %> <br>
-<%# need to add method to only show not accepted bookings %>
 
+<div class="flex gap-4 ml-12">
+    <%= link_to "Your Rooms", hospital_rooms_path %>
+    <%= link_to "List a new room", new_room_path %>
+</div>
 
-<%# need to add pundit to only show rooms of that user %>
-<%= link_to "Your Rooms", hospital_rooms_path %>
-<%= link_to "List Room", new_room_path %>
+  </div>
+
+  <div class="flex-1 container mt-12 mr-16">
+  <h1 class="text-2xl font-bold mb-8">My Calandar:</h1>
+  <%= month_calendar(events: @bookings) do |date, bookings| %>
+    <%= date.day %>
+    <% bookings.each do |booking| %>
+      <p class="font-semibold text-sm"><%= booking.room.name %></p>
+    <% end %>
+  <% end %>
+</div>
+</div>
+
+<script>
+  // Initialization for ES Users
+  import {
+    Ripple,
+    initTE,
+  } from "tw-elements";
+
+  initTE({ Ripple });
+</script>
