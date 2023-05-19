@@ -1,12 +1,15 @@
+<!--
+
 <div class="flex gap-2 ml-12 pt-3 justify-end pb-0">
     <%= link_to "Your Rooms", hospital_rooms_path, class: "text-slate-100 bg-blue-500 hover:text-blue-700 hover:bg-white active:bg-blue-600 font-bold py-2 px-4 mx-2" %>
     <%= link_to "List a new room", new_room_path, class: "text-slate-100 bg-blue-500 hover:text-blue-700 hover:bg-white active:bg-blue-600 font-bold py-2 px-4 mx-2" %>
 </div>
+-->
 
 <div class="flex pt-0 mt-0">
   <div class="flex flex-col flex-1">
 
-    <p class="text-2xl font-bold ml-12 ">Upcoming Bookings</p>
+    <p class="text-2xl font-bold ml-12 mt-12 ">Upcoming Bookings</p>
 
   <p class="text-xl mt-12 mx-12"><%= current_user.rooms.any? ? "#{current_user.rooms.first.facility_name}" : "Welcome to your hospital's page , add your first room."%>
   <%= current_user.first_name %> <%= current_user.last_name %></p>
@@ -14,9 +17,7 @@
 
 
   <div class="flex gap-4 ml-12">
-  <button
-        type="button"
-        class="
+        <%= link_to "Your Rooms", hospital_rooms_path, class: "
           inline-block
           rounded
           bg-slate-500
@@ -41,15 +42,9 @@
           focus:ring-0
           active:bg-primary-700
           active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
-        "
-        data-te-ripple-init
-        data-te-ripple-color="light">
-        <%= link_to "Your Rooms", hospital_rooms_path %>
-      </button>
+        " %>
 
- <button
-        type="button"
-        class="
+        <%= link_to "List a new room", new_room_path, class: "
           inline-block
           rounded
           bg-slate-500
@@ -74,11 +69,7 @@
           focus:ring-0
           active:bg-primary-700
           active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
-        "
-        data-te-ripple-init
-        data-te-ripple-color="light">
-        <%= link_to "List a new room", new_room_path %>
-      </button>
+        " %>
   </div>
 
 
@@ -164,7 +155,7 @@
   </div>
   <div class="tab-pane fade py-3" id="requests-tab-pane" role="tabpanel" aria-labelledby="requests-tab" tabindex="0">
       <p class="text-2xl font-bold ml-12"> <%= @requests.any? ? "Pending Requests" : "No requests yet"%> </p>
-    
+
  <% @requests.each do |request| %>
     <div
       class="
