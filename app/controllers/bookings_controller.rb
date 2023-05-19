@@ -1,9 +1,9 @@
 class BookingsController < ApplicationController
   def index
-    if params[:tab] == "pending"
-      @bookings = policy_scope(Booking.where(status: "pending"))
-    else
+    if params[:tab] == "upcomming"
       @bookings = policy_scope(Booking.where(status: "confirmed"))
+    else
+      @bookings = policy_scope(Booking.where(status: "pending"))
     end
   end
 
