@@ -1,6 +1,10 @@
-<div data-controller="booking-form" data-booking-form-room-price-value="<%= @room.price_per_hour %>">
+<div class="w-full p-4 sticky top-0 border border-gray-300 rounded-md bg-slate-50" data-controller="booking-form" data-booking-form-room-price-value="<%= @room.price_per_hour %>">
   <%= simple_form_for([@room, @booking]) do |f| %>
+
     <%= f.input :date, html5: true %>
+
+
+
     <%= f.input :startFrom, label: "From:" %>
     <%= f.input :hours, input_html: {
       class: 'hour-input',
@@ -12,6 +16,6 @@
     } %>
     <%= f.input :comment, label: "Operation details:" %>
     <p>Total price: ¥ <span id="total-price" data-booking-form-target="totalPrice"><%= @room.price_per_hour %></span></p>
-    <%= f.button :submit, class: "btn btn-primary"%>
+    <%= f.button :submit, class: "btn"%>
   <% end %>
 </div>
