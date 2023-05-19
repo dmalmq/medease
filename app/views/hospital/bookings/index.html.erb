@@ -5,7 +5,95 @@
 
 <div class="flex pt-0 mt-0">
   <div class="flex flex-col flex-1">
+
     <p class="text-2xl font-bold ml-12 ">Upcoming Bookings</p>
+
+  <p class="text-xl mt-12 mx-12"><%= current_user.rooms.any? ? "#{current_user.rooms.first.facility_name}" : "Welcome to your hospital's page , add your first room."%>
+  <%= current_user.first_name %> <%= current_user.last_name %></p>
+
+
+
+  <div class="flex gap-4 ml-12">
+  <button
+        type="button"
+        class="
+          inline-block
+          rounded
+          bg-slate-500
+          px-6
+          pb-2
+          mt-4
+          pt-2.5
+          text-xs
+          font-medium
+          uppercase
+          leading-normal
+          text-white
+          shadow-[0_4px_9px_-4px_#3b71ca]
+          transition
+          duration-150
+          ease-in-out
+          hover:bg-primary-600
+          hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+          focus:bg-primary-600
+          focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+          focus:outline-none
+          focus:ring-0
+          active:bg-primary-700
+          active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+        "
+        data-te-ripple-init
+        data-te-ripple-color="light">
+        <%= link_to "Your Rooms", hospital_rooms_path %>
+      </button>
+
+ <button
+        type="button"
+        class="
+          inline-block
+          rounded
+          bg-slate-500
+          px-6
+          pb-2
+          mt-4
+          pt-2.5
+          text-xs
+          font-medium
+          uppercase
+          leading-normal
+          text-white
+          shadow-[0_4px_9px_-4px_#3b71ca]
+          transition
+          duration-150
+          ease-in-out
+          hover:bg-primary-600
+          hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+          focus:bg-primary-600
+          focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+          focus:outline-none
+          focus:ring-0
+          active:bg-primary-700
+          active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+        "
+        data-te-ripple-init
+        data-te-ripple-color="light">
+        <%= link_to "List a new room", new_room_path %>
+      </button>
+  </div>
+
+
+<ul class="ml-8 mt-12 nav tabs-underlined" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <span class="nav-link tab-underlined active" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings-tab-pane" role="tab" aria-controls="bookings-tab-pane" aria-selected="true">Bookings</span>
+  </li>
+  <li class="nav-item" role="presentation">
+    <span class="nav-link tab-underlined" id="requests-tab" data-bs-toggle="tab" data-bs-target="#requests-tab-pane" role="tab" aria-controls="requests-tab-pane" aria-selected="false">Requests</span>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade py-3 show active" id="bookings-tab-pane" role="tabpanel" aria-labelledby="bookings-tab" tabindex="0">
+    <p class="text-2xl font-bold ml-12 mt-12"><%= @upcomming.any? ? "Your upcoming bookings" : "No bookings yet"%></p>
+
     <% @upcomming.each do |booking| %>
     <div
       class="
@@ -71,8 +159,12 @@
       </button>
     </div>
   <% end %>
-    <%# need to add a method to only show accepted bookings %>
-    <p class="text-2xl font-bold ml-12">Open Bookings</p>
+
+
+  </div>
+  <div class="tab-pane fade py-3" id="requests-tab-pane" role="tabpanel" aria-labelledby="requests-tab" tabindex="0">
+      <p class="text-2xl font-bold ml-12"> <%= @requests.any? ? "Pending Requests" : "No requests yet"%> </p>
+    
  <% @requests.each do |request| %>
     <div
       class="
@@ -171,10 +263,13 @@
     </div>
   <% end %>
 
+  </div>
+</div>
 
   </div>
 
-  <div class="flex-1 container  mr-16">
+  <div class="flex-1 container mt-12 mr-16">
+
   <h1 class="text-2xl font-bold mb-8">My Calendar:</h1>
   <%= month_calendar(events: @bookings) do |date, bookings| %>
     <%= date.day %>
