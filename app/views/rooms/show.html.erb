@@ -1,4 +1,3 @@
-
 <!-- <%= image_tag "pic1.jpg", alt:"room pic", class: "rounded-lg" %>
 <script src="app/javascripts/application.js"></script>
 
@@ -14,48 +13,47 @@
     <%= image_tag "pic3.jpg", alt:"room pic", class: "rounded-lg" %>
     <%= image_tag "pic4.jpg", alt:"room pic", class: "rounded-lg" %>
 -->
-
 <div class="inline-flex flex-row space-x-2 px-2 mx-4 py-2">
   <div class="flex basis-2/3">
-  <div class="max-w-4xl  bg-white w-full rounded-lg shadow-xl">
-          <div class="p-4 border-b">
-              <h2 class="text-4xl font-bold">
-                  <%= @room.facility_name %>
-              </h2>
-              <p class="text-2xl text-gray-500">
-                  <%= @room.name%> - <%= @room.category %>
-              </p>
-          </div>
-          <div>
-            <%= image_tag "https://images.unsplash.com/photo-1512678080530-7760d81faba6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2674&q=80", alt:"room pic", style: "height: 450px; width:800px" %>
-          </div>
-          <div>
-              <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
-                  <p class="text-gray-600 font-bold">
-                      Location
-                  </p>
-                  <p>
-                      <%= @room.address %>
-                  </p>
-              </div>
-              <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
-                  <p class="text-gray-600 font-bold">
-                      Capacity
-                  </p>
-                  <p>
-                      <%= @room.capacity %>
-                  </p>
-              </div>
-              <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
-                  <p class="text-gray-600 font-bold">
-                      Equipments
-                  </p>
-                  <p>
-                    <%= @room.equipment %>
-                  </p>
-              </div>
-          </div>
+    <div class="max-w-4xl  bg-white w-full rounded-lg shadow-xl">
+      <div class="p-4 border-b">
+        <h2 class="text-4xl font-bold">
+          <%= @room.facility_name %>
+        </h2>
+        <p class="text-2xl text-gray-500">
+          <%= @room.name%> - <%= @room.category %>
+        </p>
       </div>
+      <div>
+        <%= cl_image_tag @room.photos.first.key, alt: "room image", class: 'anthing_you_want', alt: "roomPic", style: "height: 450px; width:800px" %>
+      </div>
+      <div>
+        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+          <p class="text-gray-600 font-bold">
+            Location
+          </p>
+          <p>
+            <%= @room.address %>
+          </p>
+        </div>
+        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+          <p class="text-gray-600 font-bold">
+            Capacity
+          </p>
+          <p>
+            <%= @room.capacity %>
+          </p>
+        </div>
+        <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
+          <p class="text-gray-600 font-bold">
+            Equipments
+          </p>
+          <p>
+            <%= @room.equipment %>
+          </p>
+        </div>
+      </div>
+
 
   </div>
     <div class="container basis-1/3 sticky top-0">
@@ -69,3 +67,4 @@
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
+
