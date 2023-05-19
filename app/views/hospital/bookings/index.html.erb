@@ -1,7 +1,7 @@
 <div class="flex">
   <div class="flex flex-col flex-1">
-  <p><%= current_user.rooms.any? ? "#{current_user.rooms.first.facility_name}" : "Welcome to your hospital's page, add your first room."%>
-  - <%= current_user.first_name %> <%= current_user.last_name %></p>
+  <p class="text-xl mt-12 mx-12"><%= current_user.rooms.any? ? "#{current_user.rooms.first.facility_name}" : "Welcome to your hospital's page , add your first room."%>
+  <%= current_user.first_name %> <%= current_user.last_name %></p>
 
 
 
@@ -74,7 +74,7 @@
   </div>
 
 
-<ul class="nav tabs-underlined" id="myTab" role="tablist">
+<ul class="ml-8 mt-12 nav tabs-underlined" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
     <span class="nav-link tab-underlined active" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings-tab-pane" role="tab" aria-controls="bookings-tab-pane" aria-selected="true">Bookings</span>
   </li>
